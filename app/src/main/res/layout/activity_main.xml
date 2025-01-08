@@ -19,33 +19,35 @@
         android:id="@+id/main_username"
         style="@style/edittext"
         android:layout_marginTop="@dimen/_50sdp"
-        android:hint="Username" />
+        android:hint="@string/username" />
 
     <EditText
         android:inputType="textPassword"
         android:id="@+id/main_password"
         style="@style/edittext"
         android:layout_marginTop="@dimen/_10sdp"
-        android:hint="Password" />
+        android:hint="@string/password" />
 
     <TextView
+        android:id="@+id/main_forgot_password"
         android:textSize="@dimen/_12sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginHorizontal="@dimen/_20sdp"
-        android:text="Forgot Password"
+        android:text="@string/forgot_password"
         android:textColor="@color/gray" />
 
     <Button
         android:id="@+id/main_login"
         style="@style/button"
         android:background="@color/blue"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <Button
+        android:id="@+id/main_signup"
         style="@style/button"
         android:background="@color/yellow"
-        android:text="No Account Yet? Signup Now" />
+        android:text="@string/signup" />
 
 </LinearLayout>
