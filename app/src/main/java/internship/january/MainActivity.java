@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     Button login,signup;
-    EditText username,password;
+    public static EditText username,password;
     TextView forgotPassword;
 
     @Override
@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(view,"Login Successfully",Snackbar.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("PASSWORD",password.getText().toString()); //123456
+                    bundle.putString("USERNAME",username.getText().toString()); //Ricahrd
+                    intent.putExtras(bundle);
                     startActivity(intent);
 
                 }
