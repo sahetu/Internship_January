@@ -1,0 +1,41 @@
+package internship.january;
+
+import android.os.Bundle;
+import android.widget.ListView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class CustomListSecondActivity extends AppCompatActivity {
+
+    ListView listView;
+    String[] imageArray = {
+            "https://rukminim2.flixcart.com/image/200/200/kzegk280/action-figure/9/v/t/3-30155-mcfarlane-2-5-original-imagbeyyzehpyk2m.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/xif0q/musical-keyboard/h/v/n/37-0-2-a128-piano-keyboard-with-recording-mic-mobile-charger-original-imah3wpfgguypzb7.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/kx50gi80/pen/h/z/k/119766-flair-original-imag9nzubznagufg.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/xif0q/microphone/y/c/x/lapel-mic-mobile-collar-metal-mic-clip-microphone-for-voice-original-imah2z4mahbhmzs5.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/acoustic-guitar/e/y/y/dd-380c-blk-jixing-original-imaeff94e9tczafp.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/kdbzqfk0/bar/8/h/q/push-up-bar-0-8-long-ankaro-original-imafu9dmvdk3rzvy.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/jxz0brk0/stuffed-toy/n/t/s/4-feet-pink-very-beautiful-best-quality-for-special-gift-125-13-original-imafgv92puzkdytg.jpeg?q=70",
+            "https://rukminim2.flixcart.com/image/200/200/l58iaa80/electric-cycle/i/y/f/-original-imagfykthgudy4qz.jpeg?q=70"
+    };
+
+    String[] titleArray = {"Best of Action Toys","Musical Keyboards","Top Selling Stationery","Microphones","String Instruments","Gym Essentials","Soft Toys","Electric Cycle"};
+    String[] offerArray = {"Up to 70% Off","up to 70% off","From ₹49","Up to 70% off","Up to 70% Off","From ₹139","Upto 70% Off","Up to 40% Off"};
+    String[] descArray = {"Figurines, Battle Toys & more","Beston, Redbox & more","Pens, Notebooks & more","Explore Now!","Guitars, Ukuleles & More","Shop Now","Stuffed Toys, Plush Toys & more","Nuze, Motovolt & more"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_custom_list_second);
+
+        listView = findViewById(R.id.custom_list_second);
+        CustomSecondAdapter adapter = new CustomSecondAdapter(CustomListSecondActivity.this,imageArray,titleArray,offerArray,descArray);
+        listView.setAdapter(adapter);
+
+
+    }
+}
