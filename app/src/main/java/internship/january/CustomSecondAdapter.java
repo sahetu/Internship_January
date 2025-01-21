@@ -10,31 +10,27 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+
 public class CustomSecondAdapter extends BaseAdapter {
 
     Context context;
-    String[] imageArray;
-    String[] titleArray;
-    String[] offerArray;
-    String[] descArray;
+    ArrayList<CustomList> arrayList;
 
-    public CustomSecondAdapter(Context context, String[] imageArray, String[] titleArray, String[] offerArray, String[] descArray) {
+    public CustomSecondAdapter(Context context, ArrayList<CustomList> arrayList) {
         this.context =  context;
-        this.imageArray = imageArray;
-        this.titleArray = titleArray;
-        this.offerArray = offerArray;
-        this.descArray = descArray;
+        this.arrayList = arrayList;
     }
 
 
     @Override
     public int getCount() {
-        return imageArray.length;
+        return arrayList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return imageArray[i];
+        return arrayList.get(i);
     }
 
     @Override
@@ -52,11 +48,11 @@ public class CustomSecondAdapter extends BaseAdapter {
         TextView offer = view.findViewById(R.id.custom_second_offer);
         TextView desc = view.findViewById(R.id.custom_second_desc);
 
-        title.setText(titleArray[i]);
-        desc.setText(descArray[i]);
-        offer.setText(offerArray[i]);
+        title.setText(arrayList.get(i).getTitle());
+        desc.setText(arrayList.get(i).getDesc());
+        offer.setText(arrayList.get(i).getOffer());
 
-        Glide.with(context).load(imageArray[i]).placeholder(R.mipmap.ic_launcher).into(imageView);
+        Glide.with(context).load(arrayList.get(i).getImage()).placeholder(R.mipmap.ic_launcher).into(imageView);
 
         return view;
     }

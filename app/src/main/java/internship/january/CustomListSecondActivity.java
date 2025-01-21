@@ -9,6 +9,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class CustomListSecondActivity extends AppCompatActivity {
 
     ListView listView;
@@ -26,6 +28,7 @@ public class CustomListSecondActivity extends AppCompatActivity {
     String[] titleArray = {"Best of Action Toys","Musical Keyboards","Top Selling Stationery","Microphones","String Instruments","Gym Essentials","Soft Toys","Electric Cycle"};
     String[] offerArray = {"Up to 70% Off","up to 70% off","From ₹49","Up to 70% off","Up to 70% Off","From ₹139","Upto 70% Off","Up to 40% Off"};
     String[] descArray = {"Figurines, Battle Toys & more","Beston, Redbox & more","Pens, Notebooks & more","Explore Now!","Guitars, Ukuleles & More","Shop Now","Stuffed Toys, Plush Toys & more","Nuze, Motovolt & more"};
+    ArrayList<CustomList> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,17 @@ public class CustomListSecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom_list_second);
 
         listView = findViewById(R.id.custom_list_second);
-        CustomSecondAdapter adapter = new CustomSecondAdapter(CustomListSecondActivity.this,imageArray,titleArray,offerArray,descArray);
+
+        arrayList = new ArrayList<>();
+        for(int i=0;i<imageArray.length;i++){
+            CustomList list = new CustomList();
+            list.setImage(imageArray[i]);
+            list.setTitle(titleArray[i]);
+            list.setOffer(offerArray[i]);
+            list.setDesc(descArray[i]);
+            arrayList.add(list);
+        }
+        CustomSecondAdapter adapter = new CustomSecondAdapter(CustomListSecondActivity.this,arrayList);
         listView.setAdapter(adapter);
 
 
