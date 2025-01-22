@@ -1,6 +1,9 @@
 package internship.january;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -48,6 +51,20 @@ public class CustomListSecondActivity extends AppCompatActivity {
         }
         CustomSecondAdapter adapter = new CustomSecondAdapter(CustomListSecondActivity.this,arrayList);
         listView.setAdapter(adapter);
+
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(CustomListSecondActivity.this, CustomDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("TITLE",arrayList.get(i).getTitle());
+                bundle.putString("OFFER",arrayList.get(i).getOffer());
+                bundle.putString("DESC",arrayList.get(i).getDesc());
+                bundle.putString("IMAGE",arrayList.get(i).getImage());
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });*/
 
 
     }
